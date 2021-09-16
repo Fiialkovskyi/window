@@ -370,6 +370,10 @@ textarea:focus {
   display: inline-block;
 }
 
+.glazing_block.active a {
+  color: #454545;
+}
+
 .glazing_block img {
   display: block;
   margin: 0 auto;
