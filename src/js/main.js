@@ -4,6 +4,7 @@ import tabs from "./modules/tabs";
 import forms from "./modules/forms";
 import changeModalState from "./modules/changeModalState";
 import timer from "./modules/timer";
+import images from './modules/images';
 
 window.addEventListener("DOMContentLoaded", () => {
   "use strict";
@@ -11,6 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let modalState = { form: 0, type: "tree" };
   const deadline = "2022-01-30";
 
+  images();
   timer(".container1", deadline);
   changeModalState(modalState);
   modals();
