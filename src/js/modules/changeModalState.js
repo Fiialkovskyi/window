@@ -33,7 +33,6 @@ const changeModalState = (state) => {
             obj[objKey] = item.value;
             break;
         }
-        console.log(state);
       })
     })
   }
