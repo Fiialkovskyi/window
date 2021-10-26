@@ -4,6 +4,7 @@ const modals = () => {
     const modal = document.querySelector(modalSelector);
     const close = document.querySelector(closeSelector);
     const windows = document.querySelectorAll('[data-modal');
+    const scroll = calcScroll();
 
     trigger.forEach((item) => {
       item.addEventListener("click", (e) => {
@@ -17,6 +18,7 @@ const modals = () => {
 
         modal.style.display = "block";
         document.body.style.overflow = "hidden";
+        document.body.style.marginRight = `${scroll}px`;
       });
 
       close.addEventListener("click", () => {
@@ -26,6 +28,7 @@ const modals = () => {
 
         modal.style.display = "none";
         document.body.style.overflow = "";
+        document.body.style.marginRight = "0px";
       });
     });
 
@@ -37,6 +40,7 @@ const modals = () => {
 
         modal.style.display = "none";
         document.body.style.overflow = "";
+        document.body.style.marginRight = "0px";
       }
     });
   };
@@ -47,6 +51,19 @@ const modals = () => {
       document.body.style.overflow = "hidden";
     }, time);
   };
+
+  function calcScroll() {
+    const div = document.createElement('div');
+    div.style.width= '50px';
+    div.style.height = '50px';
+    div.style.overflowY = 'scroll';
+    div.style.visibility = 'hidden';
+    document.body.appendChild(div);
+    const scrollWidth = div.offsetWidth - div.clientWidth;
+    div.remove(); 
+
+    return scrollWidth;
+  }
 
   bindModal(
     ".popup_engineer_btn",
